@@ -1,63 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact – YZLedger</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - YZLedger</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #333;
     }
-    .container {
+
+    .navbar {
+      background-color: #004080;
+      padding: 15px 30px;
+    }
+
+    .navbar h1 {
+      color: white;
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .consultation-section {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
       padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
-    .left-img, .right-content {
+
+    .consultation-section .image {
       flex: 1;
-      min-width: 280px;
-      max-width: 500px;
-      padding: 20px;
+      padding-right: 30px;
     }
-    .left-img img {
+
+    .consultation-section img {
       width: 100%;
       border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    h2 {
+
+    .consultation-section .text {
+      flex: 1;
+    }
+
+    .consultation-section h2 {
       font-size: 28px;
-      color: #003366;
+      margin-bottom: 15px;
+      color: #004080;
     }
-    p {
+
+    .consultation-section p {
       font-size: 16px;
-      color: #444;
+      margin-bottom: 30px;
     }
-    a.button {
+
+    .consultation-button {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background-color: #003366;
+      background-color: #004080;
       color: white;
-      text-decoration: none;
+      padding: 12px 24px;
       border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .consultation-button:hover {
+      background-color: #0066cc;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      padding: 30px 20px;
+      background-color: #f0f0f0;
+      margin-top: 60px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="left-img">
-      <img src="https://raw.githubusercontent.com/YzLedger/website/main/images/consultation.jpg" alt="Consultation">
+
+  <div class="navbar">
+    <h1>YZLedger</h1>
+  </div>
+
+  <div class="consultation-section">
+    <div class="image">
+      <img src="images/consultation.png" alt="Schedule Consultation" />
     </div>
-    <div class="right-content">
-      <h2>Schedule a Complimentary Consultation</h2>
-      <p>Find out how YZLedger can support your business or personal tax needs. Book a free consultation session now.</p>
-      <a href="https://calendly.com/yzledger" class="button" target="_blank">Book Consultation</a>
+    <div class="text">
+      <h2>Schedule Your Free Consultation</h2>
+      <p>Let’s talk about how YZLedger can support your accounting and tax needs.</p>
+      <a href="https://calendly.com/yzledger" target="_blank" class="consultation-button">Book Consultation</a>
     </div>
   </div>
+
+  <footer>
+    &copy; 2025 YZLedger. All rights reserved.
+  </footer>
+
 </body>
 </html>
