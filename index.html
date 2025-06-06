@@ -2,18 +2,35 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YZLedger 会计服务</title>
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f4f4f4; }
-    header, footer { background: #1a2a4f; color: #fff; padding: 20px; text-align: center; }
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    header, footer { background: #1a2a4f; color: #fff; text-align: center; padding: 20px; }
     main { max-width: 900px; margin: 30px auto; background: #fff; padding: 30px; border-radius: 6px; }
     h2 { color: #1a2a4f; }
     section { margin-bottom: 40px; }
     .price-box { background: #e9efff; padding: 15px; border-radius: 4px; margin-top: 10px; }
-    .lang-section { border-top: 1px solid #ccc; padding-top: 40px; margin-top: 60px; }
     a.button { display: inline-block; background: #1a2a4f; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-top: 20px; }
     a.button:hover { background: #32406b; }
+    .lang-switch { text-align: center; margin-bottom: 20px; }
+    .lang-switch button {
+      background: #1a2a4f; 
+      color: white; 
+      border: none; 
+      padding: 8px 16px; 
+      margin: 0 5px; 
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .lang-switch button.active, .lang-switch button:hover {
+      background: #32406b;
+    }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+    footer p { margin: 0; font-size: 14px; }
   </style>
 </head>
 <body>
@@ -22,93 +39,120 @@
   </header>
 
   <main>
-    <!-- 中文版 -->
-    <section>
-      <h2>关于我们</h2>
-      <p>我们的团队由专业的注册会计师（CPA）和合格税务代理（Tax Agent）组成，致力于为个人与企业提供高质量的财税服务。</p>
-    </section>
+    <div class="lang-switch">
+      <button id="btn-zh" class="active" onclick="switchLang('zh')">中文</button>
+      <button id="btn-en" onclick="switchLang('en')">English</button>
+      <button id="btn-ja" onclick="switchLang('ja')">日本語</button>
+    </div>
 
-    <section>
-      <h2>服务项目</h2>
-      <ul>
-        <li>簿记与财务报表</li>
-        <li>BAS 及 GST 报告</li>
-        <li>个人与商业报税</li>
-        <li>工资单与养老金管理</li>
-        <li>税务咨询与合规支持</li>
-        <li>其他定制财税服务</li>
-      </ul>
-    </section>
+    <!-- 中文内容 -->
+    <div id="content-zh" class="lang-content active">
+      <section>
+        <h2>关于我们</h2>
+        <p>我们的团队由专业的注册会计师（CPA）和合格税务代理（Tax Agent）组成，致力于为个人与企业提供高质量的财税服务。</p>
+      </section>
+      <section>
+        <h2>服务项目</h2>
+        <ul>
+          <li>簿记与财务报表</li>
+          <li>BAS 及 GST 报告</li>
+          <li>个人与商业报税</li>
+          <li>工资单与养老金管理</li>
+          <li>税务咨询与合规支持</li>
+          <li>其他定制财税服务</li>
+        </ul>
+      </section>
+      <section>
+        <h2>价格</h2>
+        <div class="price-box">
+          <p>✔️ 个人报税：$150 起</p>
+          <p>✔️ 商业报税：$370 起</p>
+        </div>
+      </section>
+      <section>
+        <h2>预约咨询</h2>
+        <p>欢迎点击下方按钮，跳转至我们的 Zoho 在线预约页面进行免费咨询：</p>
+        <a href="https://your-zoho-link" class="button" target="_blank" rel="noopener">立即预约</a>
+      </section>
+    </div>
 
-    <section>
-      <h2>价格</h2>
-      <div class="price-box">
-        <p>✔️ 个人报税：$150 起</p>
-        <p>✔️ 商业报税：$370 起</p>
-      </div>
-    </section>
+    <!-- English content -->
+    <div id="content-en" class="lang-content">
+      <section>
+        <h2>About Us</h2>
+        <p>Our team includes Certified Practising Accountants (CPA) and qualified Tax Agents dedicated to providing high-quality financial and tax services for individuals and businesses.</p>
+      </section>
+      <section>
+        <h2>Services</h2>
+        <ul>
+          <li>Bookkeeping and Financial Reporting</li>
+          <li>BAS and GST Lodgment</li>
+          <li>Individual and Business Tax Return</li>
+          <li>Payroll and Superannuation</li>
+          <li>Tax Advisory and Compliance Support</li>
+          <li>Other Customized Tax Services</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Pricing</h2>
+        <div class="price-box">
+          <p>✔️ Individual Tax Return: from $150</p>
+          <p>✔️ Business Tax Return: from $370</p>
+        </div>
+      </section>
+      <section>
+        <h2>Book Consultation</h2>
+        <p>Click the button below to access our Zoho online booking page for a free consultation:</p>
+        <a href="https://your-zoho-link" class="button" target="_blank" rel="noopener">Book Now</a>
+      </section>
+    </div>
 
-    <section>
-      <h2>预约咨询</h2>
-      <p>欢迎点击下方按钮，跳转至我们的 Zoho 在线预约页面进行免费咨询：</p>
-      <a href="https://your-zoho-link" class="button" target="_blank">立即预约</a>
-    </section>
-
-    <!-- 英文版 -->
-    <section class="lang-section">
-      <h2>About Us</h2>
-      <p>Our team includes Certified Practising Accountants (CPA) and qualified Tax Agents dedicated to providing high-quality financial and tax services for individuals and businesses.</p>
-
-      <h2>Services</h2>
-      <ul>
-        <li>Bookkeeping and Financial Reporting</li>
-        <li>BAS and GST Lodgment</li>
-        <li>Individual and Business Tax Return</li>
-        <li>Payroll and Superannuation</li>
-        <li>Tax Advisory and Compliance Support</li>
-        <li>Other Customized Tax Services</li>
-      </ul>
-
-      <h2>Pricing</h2>
-      <div class="price-box">
-        <p>✔️ Individual Tax Return: from $150</p>
-        <p>✔️ Business Tax Return: from $370</p>
-      </div>
-
-      <h2>Book Consultation</h2>
-      <p>Click the button below to access our Zoho online booking page for a free consultation:</p>
-      <a href="https://your-zoho-link" class="button" target="_blank">Book Now</a>
-    </section>
-
-    <!-- 日文版 -->
-    <section class="lang-section">
-      <h2>私たちについて</h2>
-      <p>私たちのチームは、認定会計士（CPA）および有資格の税理士で構成されており、個人および法人向けに高品質な会計・税務サービスを提供しています。</p>
-
-      <h2>サービス内容</h2>
-      <ul>
-        <li>記帳および財務報告</li>
-        <li>BAS・GST申告</li>
-        <li>個人および法人の税務申告</li>
-        <li>給与計算と年金管理</li>
-        <li>税務相談およびコンプライアンス支援</li>
-        <li>その他カスタマイズ税務サービス</li>
-      </ul>
-
-      <h2>料金</h2>
-      <div class="price-box">
-        <p>✔️ 個人税務申告：$150〜</p>
-        <p>✔️ 法人税務申告：$370〜</p>
-      </div>
-
-      <h2>相談予約</h2>
-      <p>以下のボタンをクリックして、Zoho の予約ページから無料相談をお申し込みください：</p>
-      <a href="https://your-zoho-link" class="button" target="_blank">予約する</a>
-    </section>
+    <!-- Japanese content -->
+    <div id="content-ja" class="lang-content">
+      <section>
+        <h2>私たちについて</h2>
+        <p>私たちのチームは、認定会計士（CPA）および有資格の税理士で構成されており、個人および法人向けに高品質な会計・税務サービスを提供しています。</p>
+      </section>
+      <section>
+        <h2>サービス内容</h2>
+        <ul>
+          <li>記帳および財務報告</li>
+          <li>BAS・GST申告</li>
+          <li>個人および法人の税務申告</li>
+          <li>給与計算と年金管理</li>
+          <li>税務相談およびコンプライアンス支援</li>
+          <li>その他カスタマイズ税務サービス</li>
+        </ul>
+      </section>
+      <section>
+        <h2>料金</h2>
+        <div class="price-box">
+          <p>✔️ 個人税務申告：$150〜</p>
+          <p>✔️ 法人税務申告：$370〜</p>
+        </div>
+      </section>
+      <section>
+        <h2>相談予約</h2>
+        <p>以下のボタンをクリックして、Zoho の予約ページから無料相談をお申し込みください：</p>
+        <a href="https://your-zoho-link" class="button" target="_blank" rel="noopener">予約する</a>
+      </section>
+    </div>
   </main>
 
   <footer>
     <p>邮箱：info@yzledger.com.au ｜ 微信 / WhatsApp 可预约</p>
   </footer>
+
+  <script>
+    function switchLang(lang) {
+      const languages = ['zh', 'en', 'ja'];
+      languages.forEach(l => {
+        document.getElementById('content-' + l).classList.remove('active');
+        document.getElementById('btn-' + l).classList.remove('active');
+      });
+      document.getElementById('content-' + lang).classList.add('active');
+      document.getElementById('btn-' + lang).classList.add('active');
+    }
+  </script>
 </body>
 </html>
