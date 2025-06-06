@@ -1,158 +1,237 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YZLedger 会计服务</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-    header, footer { background: #1a2a4f; color: #fff; text-align: center; padding: 20px; }
-    main { max-width: 900px; margin: 30px auto; background: #fff; padding: 30px; border-radius: 6px; }
-    h2 { color: #1a2a4f; }
-    section { margin-bottom: 40px; }
-    .price-box { background: #e9efff; padding: 15px; border-radius: 4px; margin-top: 10px; }
-    a.button { display: inline-block; background: #1a2a4f; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-top: 20px; }
-    a.button:hover { background: #32406b; }
-    .lang-switch { text-align: center; margin-bottom: 20px; }
-    .lang-switch button {
-      background: #1a2a4f; 
-      color: white; 
-      border: none; 
-      padding: 8px 16px; 
-      margin: 0 5px; 
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-    .lang-switch button.active, .lang-switch button:hover {
-      background: #32406b;
-    }
-    .lang-content { display: none; }
-    .lang-content.active { display: block; }
-    footer p { margin: 0; font-size: 14px; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>YZLedger 会计事务所</title>
+<!-- AOS 动画库样式 -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<style>
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0; background: #f8f9fa; color: #333;
+  }
+  header {
+    background: #004080; color: #fff; padding: 15px 20px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  header h1 {
+    margin: 0; font-weight: 700; font-size: 1.5rem;
+  }
+  .lang-switcher button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 5px 10px;
+  }
+  .lang-switcher button.active {
+    background: #ffc107;
+    border-radius: 4px;
+    color: #004080;
+  }
+  main {
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  section {
+    margin-bottom: 50px;
+  }
+  h2 {
+    color: #004080;
+    border-bottom: 3px solid #004080;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  ul li {
+    padding: 6px 0;
+    font-size: 1.1rem;
+  }
+  .price-list {
+    font-size: 1.2rem;
+    background: #e3f2fd;
+    padding: 15px 20px;
+    border-radius: 6px;
+  }
+  .btn-book {
+    display: inline-block;
+    background: #004080;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  .btn-book:hover {
+    background: #00264d;
+  }
+  footer {
+    background: #003366;
+    color: #ccc;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+  }
+  footer .contact-icons span {
+    margin: 0 8px;
+    font-size: 1.3rem;
+    cursor: default;
+  }
+  /* 多语言隐藏 */
+  .lang-content {
+    display: none;
+  }
+  .lang-content.active {
+    display: block;
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>YZLedger 会计服务</h1>
-  </header>
 
-  <main>
-    <div class="lang-switch">
-      <button id="btn-zh" class="active" onclick="switchLang('zh')">中文</button>
-      <button id="btn-en" onclick="switchLang('en')">English</button>
-      <button id="btn-ja" onclick="switchLang('ja')">日本語</button>
+<header>
+  <h1>YZLedger</h1>
+  <nav class="lang-switcher" aria-label="语言切换">
+    <button data-lang="zh" class="active" aria-current="page">中文</button>
+    <button data-lang="en">English</button>
+    <button data-lang="jp">日本語</button>
+  </nav>
+</header>
+
+<main>
+  <!-- 中文 -->
+  <section class="lang-content active" data-lang="zh">
+    <h2 data-aos="fade-up">关于我们</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      我们的团队由专业注册会计师和合格税务代理人组成，致力于为您提供精准、可靠的会计及税务服务。
+    </p>
+
+    <h2 data-aos="fade-up" data-aos-delay="200">服务项目</h2>
+    <ul data-aos="fade-up" data-aos-delay="300">
+      <li>账簿管理与财务报表</li>
+      <li>BAS和GST申报</li>
+      <li>个人及企业报税</li>
+      <li>薪资及退休金管理</li>
+      <li>税务咨询与合规支持</li>
+      <li>更多定制服务，欢迎咨询</li>
+    </ul>
+
+    <h2 data-aos="fade-up" data-aos-delay="400">价格</h2>
+    <div class="price-list" data-aos="fade-up" data-aos-delay="500">
+      <p>个人报税起价：150澳元</p>
+      <p>商业报税起价：370澳元</p>
     </div>
 
-    <!-- 中文内容 -->
-    <div id="content-zh" class="lang-content active">
-      <section>
-        <h2>关于我们</h2>
-        <p>我们的团队由专业的注册会计师（CPA）和合格税务代理（Tax Agent）组成，致力于为个人与企业提供高质量的财税服务。</p>
-      </section>
-      <section>
-        <h2>服务项目</h2>
-        <ul>
-          <li>簿记与财务报表</li>
-          <li>BAS 及 GST 报告</li>
-          <li>个人与商业报税</li>
-          <li>工资单与养老金管理</li>
-          <li>税务咨询与合规支持</li>
-          <li>其他定制财税服务</li>
-        </ul>
-      </section>
-      <section>
-        <h2>价格</h2>
-        <div class="price-box">
-          <p>✔️ 个人报税：$150 起</p>
-          <p>✔️ 商业报税：$370 起</p>
-        </div>
-      </section>
-      <section>
-        <h2>预约咨询</h2>
-        <p>欢迎点击下方按钮，跳转至我们的 Zoho 在线预约页面进行免费咨询：</p>
-        <a href="https://your-zoho-link" class="button" target="_blank" rel="noopener">立即预约</a>
-      </section>
+    <div data-aos="fade-up" data-aos-delay="600" style="margin-top: 30px;">
+      <a class="btn-book" href="https://your-zoho-booking-link" target="_blank" rel="noopener noreferrer">预约咨询</a>
+    </div>
+  </section>
+
+  <!-- English -->
+  <section class="lang-content" data-lang="en">
+    <h2 data-aos="fade-up">About Us</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      Our team consists of professional Certified Public Accountants and qualified tax agents, dedicated to providing you accurate and reliable accounting and tax services.
+    </p>
+
+    <h2 data-aos="fade-up" data-aos-delay="200">Services</h2>
+    <ul data-aos="fade-up" data-aos-delay="300">
+      <li>Bookkeeping and Financial Reporting</li>
+      <li>BAS and GST Lodgment</li>
+      <li>Individual and Business Tax Return</li>
+      <li>Payroll and Superannuation</li>
+      <li>Tax Advisory and Compliance Support</li>
+      <li>Customised services available upon request</li>
+    </ul>
+
+    <h2 data-aos="fade-up" data-aos-delay="400">Pricing</h2>
+    <div class="price-list" data-aos="fade-up" data-aos-delay="500">
+      <p>Individual Tax Return from AUD 150</p>
+      <p>Business Tax Return from AUD 370</p>
     </div>
 
-    <!-- English content -->
-    <div id="content-en" class="lang-content">
-      <section>
-        <h2>About Us</h2>
-        <p>Our team includes Certified Practising Accountants (CPA) and qualified Tax Agents dedicated to providing high-quality financial and tax services for individuals and businesses.</p>
-      </section>
-      <section>
-        <h2>Services</h2>
-        <ul>
-          <li>Bookkeeping and Financial Reporting</li>
-          <li>BAS and GST Lodgment</li>
-          <li>Individual and Business Tax Return</li>
-          <li>Payroll and Superannuation</li>
-          <li>Tax Advisory and Compliance Support</li>
-          <li>Other Customized Tax Services</li>
-        </ul>
-      </section>
-      <section>
-        <h2>Pricing</h2>
-        <div class="price-box">
-          <p>✔️ Individual Tax Return: from $150</p>
-          <p>✔️ Business Tax Return: from $370</p>
-        </div>
-      </section>
-      <section>
-        <h2>Book Consultation</h2>
-        <p>Click the button below to access our Zoho online booking page for a free consultation:</p>
-        <a href="https://your-zoho-link" class="button" target="_blank" rel="noopener">Book Now</a>
-      </section>
+    <div data-aos="fade-up" data-aos-delay="600" style="margin-top: 30px;">
+      <a class="btn-book" href="https://your-zoho-booking-link" target="_blank" rel="noopener noreferrer">Book Consultation</a>
+    </div>
+  </section>
+
+  <!-- 日本語 -->
+  <section class="lang-content" data-lang="jp">
+    <h2 data-aos="fade-up">私たちについて</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      私たちのチームは、専門の公認会計士と認定税務代理人で構成されており、正確で信頼できる会計および税務サービスを提供しています。
+    </p>
+
+    <h2 data-aos="fade-up" data-aos-delay="200">サービス内容</h2>
+    <ul data-aos="fade-up" data-aos-delay="300">
+      <li>簿記および財務報告</li>
+      <li>BASおよびGST申告</li>
+      <li>個人および法人の確定申告</li>
+      <li>給与および退職金管理</li>
+      <li>税務相談およびコンプライアンスサポート</li>
+      <li>カスタマイズされたサービスもご相談ください</li>
+    </ul>
+
+    <h2 data-aos="fade-up" data-aos-delay="400">料金</h2>
+    <div class="price-list" data-aos="fade-up" data-aos-delay="500">
+      <p>個人の確定申告：150豪ドルから</p>
+      <p>法人の確定申告：370豪ドルから</p>
     </div>
 
-    <!-- Japanese content -->
-    <div id="content-ja" class="lang-content">
-      <section>
-        <h2>私たちについて</h2>
-        <p>私たちのチームは、認定会計士（CPA）および有資格の税理士で構成されており、個人および法人向けに高品質な会計・税務サービスを提供しています。</p>
-      </section>
-      <section>
-        <h2>サービス内容</h2>
-        <ul>
-          <li>記帳および財務報告</li>
-          <li>BAS・GST申告</li>
-          <li>個人および法人の税務申告</li>
-          <li>給与計算と年金管理</li>
-          <li>税務相談およびコンプライアンス支援</li>
-          <li>その他カスタマイズ税務サービス</li>
-        </ul>
-      </section>
-      <section>
-        <h2>料金</h2>
-        <div class="price-box">
-          <p>✔️ 個人税務申告：$150〜</p>
-          <p>✔️ 法人税務申告：$370〜</p>
-        </div>
-      </section>
-      <section>
-        <h2>相談予約</h2>
-        <p>以下のボタンをクリックして、Zoho の予約ページから無料相談をお申し込みください：</p>
-        <a href="https://your-zoho-link" class="button" target="_blank" rel="noopener">予約する</a>
-      </section>
+    <div data-aos="fade-up" data-aos-delay="600" style="margin-top: 30px;">
+      <a class="btn-book" href="https://your-zoho-booking-link" target="_blank" rel="noopener noreferrer">相談を予約する</a>
     </div>
-  </main>
+  </section>
+</main>
 
-  <footer>
-    <p>邮箱：info@yzledger.com.au ｜ 微信 / WhatsApp 可预约</p>
-  </footer>
+<footer>
+  <div>联系我们: info@yzledger.com.au</div>
+  <div class="contact-icons" style="margin-top:8px;">
+    <span title="微信">🟩</span>
+    <span title="WhatsApp">🟢</span>
+  </div>
+</footer>
 
-  <script>
-    function switchLang(lang) {
-      const languages = ['zh', 'en', 'ja'];
-      languages.forEach(l => {
-        document.getElementById('content-' + l).classList.remove('active');
-        document.getElementById('btn-' + l).classList.remove('active');
+<!-- AOS 动画库 -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 800,
+  });
+
+  // 语言切换逻辑
+  const buttons = document.querySelectorAll('.lang-switcher button');
+  const contents = document.querySelectorAll('.lang-content');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.getAttribute('data-lang');
+
+      // 切换按钮样式
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // 显示对应语言内容
+      contents.forEach(c => {
+        if (c.getAttribute('data-lang') === lang) {
+          c.classList.add('active');
+        } else {
+          c.classList.remove('active');
+        }
       });
-      document.getElementById('content-' + lang).classList.add('active');
-      document.getElementById('btn-' + lang).classList.add('active');
-    }
-  </script>
+    });
+  });
+</script>
+
 </body>
 </html>
