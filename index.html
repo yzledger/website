@@ -3,178 +3,215 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>YZLedger - Accounting Services</title>
+  <title>YZLedger – Accounting Services</title>
   <style>
-    :root {
-      --main-green: #4a7158;
-      --light-bg: #f7f7f7;
-      --text-dark: #222;
-      --text-light: #fff;
-    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: white;
-      color: var(--text-dark);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-    header {
-      background: url('hero.jpg') no-repeat center center/cover;
-      height: 100vh;
+
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1517430816045-df4b7de11d1d');
+      background-size: cover;
+      background-position: center;
       color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 20px 40px;
-      position: relative;
+      padding: 100px 20px;
+      text-align: center;
     }
-    .language-switch {
+
+    .language-switcher {
       position: absolute;
       top: 20px;
-      right: 30px;
+      right: 20px;
     }
-    .language-switch button {
-      margin-left: 8px;
+
+    .language-switcher button {
+      margin-left: 5px;
       padding: 6px 12px;
       border: none;
-      background-color: var(--main-green);
-      color: white;
+      background-color: rgba(255, 255, 255, 0.8);
       cursor: pointer;
-      border-radius: 4px;
+      font-weight: bold;
+      border-radius: 5px;
     }
-    .hero-text {
-      margin-top: auto;
-      margin-bottom: 100px;
+
+    .section {
+      padding: 40px 20px;
+      text-align: center;
     }
-    .hero-text h1 { font-size: 48px; margin-bottom: 10px; }
-    .section { padding: 60px 40px; }
-    .services, .pricing { background-color: var(--light-bg); }
-    h2 { font-size: 32px; margin-bottom: 20px; }
-    .grid {
+
+    .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
-    .card {
-      background: white;
+
+    .service-item {
+      background-color: #f5f5f5;
       padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      border-radius: 10px;
     }
-    .about img {
-      max-width: 400px;
-      width: 100%;
-      margin-right: 30px;
-    }
-    .about-content {
+
+    .consultation-section {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      background-color: #f2f2f2;
     }
-    .contact { text-align: center; }
-    .contact p { margin: 8px 0; }
-    a.button {
+
+    .consultation-image {
+      flex: 1;
+      max-width: 500px;
+      padding: 20px;
+    }
+
+    .consultation-image img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .consultation-text {
+      flex: 1;
+      max-width: 500px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .consultation-text a {
       display: inline-block;
-      margin-top: 10px;
-      background-color: var(--main-green);
+      padding: 12px 24px;
+      background-color: #007bff;
       color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
       text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .consultation-text a:hover {
+      background-color: #0056b3;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 60px 15px;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="language-switch">
-      <button onclick="setLang('en')">EN</button>
-      <button onclick="setLang('zh')">中</button>
-      <button onclick="setLang('jp')">日</button>
-    </div>
-    <div class="hero-text">
-      <h1 id="site-title">YZLedger 会计服务</h1>
-      <p id="site-subtitle">我们为个人与企业提供专业报税与财务咨询服务</p>
-    </div>
-  </header>
+  <div class="language-switcher">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('zh')">中文</button>
+    <button onclick="setLanguage('jp')">日本語</button>
+  </div>
 
-  <section class="services section">
-    <h2 id="services-title">服务项目</h2>
-    <div class="grid" id="services-list">
-      <div class="card">1. 记账与财务报表</div>
-      <div class="card">2. BAS 和 GST 申报</div>
-      <div class="card">3. 个人与企业报税</div>
-      <div class="card">4. 工资与养老金管理</div>
-      <div class="card">5. 税务咨询与合规支持</div>
-      <div class="card">6. 公司注册与结构建议</div>
-    </div>
-  </section>
+  <div class="hero">
+    <h1 id="title">YZLedger</h1>
+    <p id="subtitle">Professional Accounting Services You Can Trust</p>
+  </div>
 
-  <section class="pricing section">
-    <h2 id="pricing-title">价格</h2>
-    <div class="grid" id="pricing-list">
-      <div class="card">个人报税：$150 起</div>
-      <div class="card">商业报税：$350 起</div>
+  <div class="section">
+    <h2 id="serviceTitle">Our Core Services</h2>
+    <div class="services" id="servicesList">
+      <!-- 动态插入服务项 -->
     </div>
-  </section>
+  </div>
 
-  <section class="about section">
-    <h2 id="about-title">关于我们</h2>
-    <div class="about-content">
-      <img src="team.jpg" alt="团队形象图" />
-      <p id="about-text">
-        我们是由注册会计师（CPA）与合格税务代理组成的专业团队，为客户提供优质的财务与税务服务。我们的目标是简化您的财务流程，节省成本并确保合规。
-      </p>
+  <div class="consultation-section">
+    <div class="consultation-image">
+      <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=800&q=80" alt="Consultation Image">
     </div>
-  </section>
+    <div class="consultation-text">
+      <h2 id="consultationTitle">Schedule a Complimentary Consultation</h2>
+      <a href="https://bookings.zoho.com/..." target="_blank" id="consultationButton">Book Consultation</a>
+    </div>
+  </div>
 
-  <section class="contact section">
-    <h2 id="contact-title">联系方式</h2>
-    <p>邮箱: info@yzledger.com.au</p>
-    <p>微信: YZLedger</p>
-    <p>WhatsApp: +61 400 000 000</p>
-    <a href="https://your-zoho-link.com" target="_blank" class="button" id="book-btn">预约咨询</a>
-  </section>
+  <div class="footer">
+    <span id="contactText">Contact us at: </span>
+    <a href="mailto:info@yzledger.com.au">info@yzledger.com.au</a>
+  </div>
 
   <script>
-    const content = {
-      zh: {
-        'site-title': 'YZLedger 会计服务',
-        'site-subtitle': '我们为个人与企业提供专业报税与财务咨询服务',
-        'services-title': '服务项目',
-        'pricing-title': '价格',
-        'about-title': '关于我们',
-        'about-text': '我们是由注册会计师（CPA）与合格税务代理组成的专业团队，为客户提供优质的财务与税务服务。我们的目标是简化您的财务流程，节省成本并确保合规。',
-        'contact-title': '联系方式',
-        'book-btn': '预约咨询'
-      },
+    const translations = {
       en: {
-        'site-title': 'YZLedger Accounting',
-        'site-subtitle': 'We provide tax & financial services for individuals and businesses',
-        'services-title': 'Our Services',
-        'pricing-title': 'Pricing',
-        'about-title': 'About Us',
-        'about-text': 'Our team consists of Certified Practising Accountants (CPA) and licensed tax agents dedicated to helping you manage taxes and compliance efficiently.',
-        'contact-title': 'Contact Us',
-        'book-btn': 'Book Consultation'
+        subtitle: "Professional Accounting Services You Can Trust",
+        serviceTitle: "Our Core Services",
+        services: [
+          "Bookkeeping & Financial Reporting",
+          "BAS & GST Lodgment",
+          "Individual & Business Tax Return",
+          "Payroll & Superannuation",
+          "Tax Advisory & Compliance Support",
+          "Business Structure & Setup Guidance"
+        ],
+        consultationTitle: "Schedule a Complimentary Consultation",
+        consultationButton: "Book Consultation",
+        contactText: "Contact us at: "
+      },
+      zh: {
+        subtitle: "您可以信赖的专业会计服务",
+        serviceTitle: "我们的核心服务",
+        services: [
+          "记账与财务报表",
+          "BAS 与 GST 报税",
+          "个人与企业报税",
+          "薪资与退休金管理",
+          "税务咨询与合规支持",
+          "企业架构与注册指导"
+        ],
+        consultationTitle: "预约免费咨询服务",
+        consultationButton: "立即预约",
+        contactText: "联系我们："
       },
       jp: {
-        'site-title': 'YZLedger 会計サービス',
-        'site-subtitle': '個人と法人向けの税務・会計サービスを提供します',
-        'services-title': 'サービス内容',
-        'pricing-title': '料金',
-        'about-title': '私たちについて',
-        'about-text': '私たちは、CPAおよび公認税理士で構成された専門チームです。高品質な会計・税務サービスを通じて、お客様のビジネスをサポートします。',
-        'contact-title': 'お問い合わせ',
-        'book-btn': '相談予約'
+        subtitle: "信頼できる専門的な会計サービス",
+        serviceTitle: "主なサービス内容",
+        services: [
+          "記帳と財務報告",
+          "BASおよびGST申告",
+          "個人および法人の税務申告",
+          "給与計算と年金管理",
+          "税務アドバイザリーとコンプライアンス",
+          "ビジネス構造と設立ガイド"
+        ],
+        consultationTitle: "無料相談を予約する",
+        consultationButton: "今すぐ予約",
+        contactText: "お問い合わせ先："
       }
     };
 
-    function setLang(lang) {
-      Object.keys(content[lang]).forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.innerText = content[lang][id];
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById("subtitle").innerText = t.subtitle;
+      document.getElementById("serviceTitle").innerText = t.serviceTitle;
+      document.getElementById("consultationTitle").innerText = t.consultationTitle;
+      document.getElementById("consultationButton").innerText = t.consultationButton;
+      document.getElementById("contactText").innerText = t.contactText;
+
+      const servicesContainer = document.getElementById("servicesList");
+      servicesContainer.innerHTML = '';
+      t.services.forEach(service => {
+        const div = document.createElement('div');
+        div.className = 'service-item';
+        div.innerHTML = `<h3>${service}</h3>`;
+        servicesContainer.appendChild(div);
       });
     }
+
+    // 默认语言
+    setLanguage('en');
   </script>
 </body>
 </html>
