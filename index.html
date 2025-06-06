@@ -1,237 +1,255 @@
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>YZLedger 会计事务所</title>
-<!-- AOS 动画库样式 -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-<style>
-  body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0; padding: 0; background: #f8f9fa; color: #333;
-  }
-  header {
-    background: #004080; color: #fff; padding: 15px 20px;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  header h1 {
-    margin: 0; font-weight: 700; font-size: 1.5rem;
-  }
-  .lang-switcher button {
-    background: transparent;
-    border: none;
-    color: #fff;
-    margin-left: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 5px 10px;
-  }
-  .lang-switcher button.active {
-    background: #ffc107;
-    border-radius: 4px;
-    color: #004080;
-  }
-  main {
-    max-width: 960px;
-    margin: 30px auto;
-    padding: 0 20px;
-  }
-  section {
-    margin-bottom: 50px;
-  }
-  h2 {
-    color: #004080;
-    border-bottom: 3px solid #004080;
-    padding-bottom: 8px;
-    margin-bottom: 20px;
-  }
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  ul li {
-    padding: 6px 0;
-    font-size: 1.1rem;
-  }
-  .price-list {
-    font-size: 1.2rem;
-    background: #e3f2fd;
-    padding: 15px 20px;
-    border-radius: 6px;
-  }
-  .btn-book {
-    display: inline-block;
-    background: #004080;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-decoration: none;
-    transition: background 0.3s ease;
-  }
-  .btn-book:hover {
-    background: #00264d;
-  }
-  footer {
-    background: #003366;
-    color: #ccc;
-    text-align: center;
-    padding: 20px 10px;
-    font-size: 0.9rem;
-  }
-  footer .contact-icons span {
-    margin: 0 8px;
-    font-size: 1.3rem;
-    cursor: default;
-  }
-  /* 多语言隐藏 */
-  .lang-content {
-    display: none;
-  }
-  .lang-content.active {
-    display: block;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YZLedger - Accounting Services</title>
+  <style>
+    :root {
+      --main-green: #4a7158;
+      --light-bg: #f7f7f7;
+      --text-dark: #222;
+      --text-light: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: white;
+      color: var(--text-dark);
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1581090700227-1e8a0c250f98?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      height: 100vh;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 40px;
+      position: relative;
+    }
+
+    .language-switch {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+
+    .language-switch button {
+      margin-left: 8px;
+      padding: 6px 12px;
+      border: none;
+      background-color: var(--main-green);
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .hero-text {
+      margin-top: auto;
+      margin-bottom: 100px;
+    }
+
+    .hero-text h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .section {
+      padding: 60px 40px;
+    }
+
+    .services, .pricing {
+      background-color: var(--light-bg);
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .about img {
+      max-width: 400px;
+      width: 100%;
+      margin-right: 30px;
+    }
+
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin: 8px 0;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: var(--main-green);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-
-<header>
-  <h1>YZLedger</h1>
-  <nav class="lang-switcher" aria-label="语言切换">
-    <button data-lang="zh" class="active" aria-current="page">中文</button>
-    <button data-lang="en">English</button>
-    <button data-lang="jp">日本語</button>
-  </nav>
-</header>
-
-<main>
-  <!-- 中文 -->
-  <section class="lang-content active" data-lang="zh">
-    <h2 data-aos="fade-up">关于我们</h2>
-    <p data-aos="fade-up" data-aos-delay="100">
-      我们的团队由专业注册会计师和合格税务代理人组成，致力于为您提供精准、可靠的会计及税务服务。
-    </p>
-
-    <h2 data-aos="fade-up" data-aos-delay="200">服务项目</h2>
-    <ul data-aos="fade-up" data-aos-delay="300">
-      <li>账簿管理与财务报表</li>
-      <li>BAS和GST申报</li>
-      <li>个人及企业报税</li>
-      <li>薪资及退休金管理</li>
-      <li>税务咨询与合规支持</li>
-      <li>更多定制服务，欢迎咨询</li>
-    </ul>
-
-    <h2 data-aos="fade-up" data-aos-delay="400">价格</h2>
-    <div class="price-list" data-aos="fade-up" data-aos-delay="500">
-      <p>个人报税起价：150澳元</p>
-      <p>商业报税起价：370澳元</p>
+  <header>
+    <div class="language-switch">
+      <button onclick="setLang('en')">EN</button>
+      <button onclick="setLang('zh')">中</button>
+      <button onclick="setLang('jp')">日</button>
     </div>
+    <div class="hero-text">
+      <h1 id="site-title">YZLedger 会计服务</h1>
+      <p id="site-subtitle">我们为个人与企业提供专业报税与财务咨询服务</p>
+    </div>
+  </header>
 
-    <div data-aos="fade-up" data-aos-delay="600" style="margin-top: 30px;">
-      <a class="btn-book" href="https://your-zoho-booking-link" target="_blank" rel="noopener noreferrer">预约咨询</a>
+  <section class="services section">
+    <h2 id="services-title">服务项目</h2>
+    <div class="grid" id="services-list">
+      <div class="card">1. 记账与财务报表</div>
+      <div class="card">2. BAS 和 GST 申报</div>
+      <div class="card">3. 个人与企业报税</div>
+      <div class="card">4. 工资与养老金管理</div>
+      <div class="card">5. 税务咨询与合规支持</div>
+      <div class="card">6. 其他财税服务</div>
     </div>
   </section>
 
-  <!-- English -->
-  <section class="lang-content" data-lang="en">
-    <h2 data-aos="fade-up">About Us</h2>
-    <p data-aos="fade-up" data-aos-delay="100">
-      Our team consists of professional Certified Public Accountants and qualified tax agents, dedicated to providing you accurate and reliable accounting and tax services.
-    </p>
-
-    <h2 data-aos="fade-up" data-aos-delay="200">Services</h2>
-    <ul data-aos="fade-up" data-aos-delay="300">
-      <li>Bookkeeping and Financial Reporting</li>
-      <li>BAS and GST Lodgment</li>
-      <li>Individual and Business Tax Return</li>
-      <li>Payroll and Superannuation</li>
-      <li>Tax Advisory and Compliance Support</li>
-      <li>Customised services available upon request</li>
-    </ul>
-
-    <h2 data-aos="fade-up" data-aos-delay="400">Pricing</h2>
-    <div class="price-list" data-aos="fade-up" data-aos-delay="500">
-      <p>Individual Tax Return from AUD 150</p>
-      <p>Business Tax Return from AUD 370</p>
-    </div>
-
-    <div data-aos="fade-up" data-aos-delay="600" style="margin-top: 30px;">
-      <a class="btn-book" href="https://your-zoho-booking-link" target="_blank" rel="noopener noreferrer">Book Consultation</a>
+  <section class="pricing section">
+    <h2 id="pricing-title">价格</h2>
+    <div class="grid">
+      <div class="card" id="price-personal">个人报税：$150 起</div>
+      <div class="card" id="price-business">商业报税：$350 起</div>
     </div>
   </section>
 
-  <!-- 日本語 -->
-  <section class="lang-content" data-lang="jp">
-    <h2 data-aos="fade-up">私たちについて</h2>
-    <p data-aos="fade-up" data-aos-delay="100">
-      私たちのチームは、専門の公認会計士と認定税務代理人で構成されており、正確で信頼できる会計および税務サービスを提供しています。
-    </p>
-
-    <h2 data-aos="fade-up" data-aos-delay="200">サービス内容</h2>
-    <ul data-aos="fade-up" data-aos-delay="300">
-      <li>簿記および財務報告</li>
-      <li>BASおよびGST申告</li>
-      <li>個人および法人の確定申告</li>
-      <li>給与および退職金管理</li>
-      <li>税務相談およびコンプライアンスサポート</li>
-      <li>カスタマイズされたサービスもご相談ください</li>
-    </ul>
-
-    <h2 data-aos="fade-up" data-aos-delay="400">料金</h2>
-    <div class="price-list" data-aos="fade-up" data-aos-delay="500">
-      <p>個人の確定申告：150豪ドルから</p>
-      <p>法人の確定申告：370豪ドルから</p>
+  <section class="about section">
+    <h2 id="about-title">关于我们</h2>
+    <div class="about-content">
+      <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee7b?auto=format&fit=crop&w=800&q=80" alt="About">
+      <p id="about-text">
+        我们是一支由注册会计师（CPA）与认证税务代理（Tax Agent）组成的专业团队，致力于为客户提供精准、高效、合规的财税服务。
+      </p>
     </div>
-
-    <div data-aos="fade-up" data-aos-delay="600" style="margin-top: 30px;">
-      <a class="btn-book" href="https://your-zoho-booking-link" target="_blank" rel="noopener noreferrer">相談を予約する</a>
-    </div>
+    <a href="https://calendar.app.zoho.com" target="_blank" class="button" id="book-button">预约咨询</a>
   </section>
-</main>
 
-<footer>
-  <div>联系我们: info@yzledger.com.au</div>
-  <div class="contact-icons" style="margin-top:8px;">
-    <span title="微信">🟩</span>
-    <span title="WhatsApp">🟢</span>
-  </div>
-</footer>
+  <section class="contact section">
+    <h2 id="contact-title">联系方式</h2>
+    <p>Email: info@yzledger.com.au</p>
+    <p>微信: yzledger</p>
+    <p>WhatsApp: +61 4XX XXX XXX</p>
+  </section>
 
-<!-- AOS 动画库 -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    once: true,
-    duration: 800,
-  });
+  <script>
+    const content = {
+      en: {
+        siteTitle: "YZLedger Accounting Services",
+        siteSubtitle: "Professional Tax & Financial Support for Individuals and Businesses",
+        servicesTitle: "Our Services",
+        services: [
+          "1. Bookkeeping and Financial Reporting",
+          "2. BAS and GST Lodgment",
+          "3. Individual and Business Tax Return",
+          "4. Payroll and Superannuation",
+          "5. Tax Advisory and Compliance Support",
+          "6. Other Tax & Financial Services"
+        ],
+        pricingTitle: "Pricing",
+        pricePersonal: "Individual Tax Return: From $150",
+        priceBusiness: "Business Tax Return: From $350",
+        aboutTitle: "About Us",
+        aboutText: "Our team consists of qualified CPAs and registered Tax Agents offering reliable, accurate, and compliant financial services.",
+        bookButton: "Book Consultation",
+        contactTitle: "Contact"
+      },
+      zh: {
+        siteTitle: "YZLedger 会计服务",
+        siteSubtitle: "我们为个人与企业提供专业报税与财务咨询服务",
+        servicesTitle: "服务项目",
+        services: [
+          "1. 记账与财务报表",
+          "2. BAS 和 GST 申报",
+          "3. 个人与企业报税",
+          "4. 工资与养老金管理",
+          "5. 税务咨询与合规支持",
+          "6. 其他财税服务"
+        ],
+        pricingTitle: "价格",
+        pricePersonal: "个人报税：$150 起",
+        priceBusiness: "商业报税：$350 起",
+        aboutTitle: "关于我们",
+        aboutText: "我们是一支由注册会计师（CPA）与认证税务代理（Tax Agent）组成的专业团队，致力于为客户提供精准、高效、合规的财税服务。",
+        bookButton: "预约咨询",
+        contactTitle: "联系方式"
+      },
+      jp: {
+        siteTitle: "YZLedger 会計サービス",
+        siteSubtitle: "個人および法人向けの専門的な税務・会計サポート",
+        servicesTitle: "サービス内容",
+        services: [
+          "1. 記帳と財務報告",
+          "2. BASおよびGST申告",
+          "3. 個人および法人の税務申告",
+          "4. 給与計算と年金管理",
+          "5. 税務相談とコンプライアンス支援",
+          "6. その他の税務・会計サービス"
+        ],
+        pricingTitle: "料金",
+        pricePersonal: "個人の税務申告：$150〜",
+        priceBusiness: "法人の税務申告：$350〜",
+        aboutTitle: "当事務所について",
+        aboutText: "当社のチームは、資格を持つ公認会計士（CPA）と登録税理士（Tax Agent）で構成され、正確かつ信頼性の高い税務・会計サービスを提供します。",
+        bookButton: "ご相談予約",
+        contactTitle: "お問い合わせ"
+      }
+    };
 
-  // 语言切换逻辑
-  const buttons = document.querySelectorAll('.lang-switcher button');
-  const contents = document.querySelectorAll('.lang-content');
+    function setLang(lang) {
+      const t = content[lang];
+      document.getElementById("site-title").textContent = t.siteTitle;
+      document.getElementById("site-subtitle").textContent = t.siteSubtitle;
+      document.getElementById("services-title").textContent = t.servicesTitle;
+      document.getElementById("pricing-title").textContent = t.pricingTitle;
+      document.getElementById("price-personal").textContent = t.pricePersonal;
+      document.getElementById("price-business").textContent = t.priceBusiness;
+      document.getElementById("about-title").textContent = t.aboutTitle;
+      document.getElementById("about-text").textContent = t.aboutText;
+      document.getElementById("book-button").textContent = t.bookButton;
+      document.getElementById("contact-title").textContent = t.contactTitle;
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lang = btn.getAttribute('data-lang');
-
-      // 切换按钮样式
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      // 显示对应语言内容
-      contents.forEach(c => {
-        if (c.getAttribute('data-lang') === lang) {
-          c.classList.add('active');
-        } else {
-          c.classList.remove('active');
-        }
+      const serviceCards = document.querySelectorAll("#services-list .card");
+      serviceCards.forEach((card, i) => {
+        card.textContent = t.services[i];
       });
-    });
-  });
-</script>
+    }
 
+    setLang("zh");
+  </script>
 </body>
 </html>
